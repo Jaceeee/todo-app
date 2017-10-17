@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import ProjectItem from './ProjectItem';
 
 class Projects extends Component {
-  deleteProject(id) {
-    this.props.onDelete(id)
+  deleteProject(id){
+    this.props.onDelete(id);
   }
 
   render () {
@@ -11,19 +11,29 @@ class Projects extends Component {
 
     if(this.props.projects) {
       projectItems = this.props.projects.map(project => {
+        //console.log(project);
         return (
           <ProjectItem onDelete={this.deleteProject.bind(this)} key={project.title} project={project} />
         );
       });
     }
-
     return (
       <div className="Projects">
+        <h3>Latest Projects</h3>
         {projectItems}
       </div>
-    )
+    );
   }
 }
 
-// Warning: Each child in the array should have a unique "key" prop
+// Projects.propTypes = {
+//   projects: React.PropTypes.array,
+//   onDelete: React.PropTypes.func
+// }
+
+// propTypes = {
+//   projects: deprecate(PropTypes.array, 'Undefined.'),
+//   onDelete: deprecate(PropTypes.func, 'Undefined.')
+// }
+
 export default Projects;

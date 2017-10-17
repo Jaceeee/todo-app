@@ -40,12 +40,11 @@ export const reducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case types.ADD: {
-      payload.id == uuid.v4()
+      payload.id === uuid.v4()
       return {
         ...state,
         projects: [payload, ...projects]
       }
-      break;
     }
     case type.REMOVE: {
       return {
@@ -53,6 +52,7 @@ export const reducer = (state = initialState, action) => {
         projects: projects.filter((project) =>project.id !== payload)
       }
     }
+    default:
+      return state;
   }
-  return state;
 }

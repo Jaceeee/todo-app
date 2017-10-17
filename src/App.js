@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { actionCreators } from './reducer'
-import Projects from './Components/Projects';
-import AddProject from './Components/AddProject';
+import Projects from './components/Projects';
+import AddProject from './components/AddProject';
 import './App.css';
 
 const mapStateToProps = (state) => ({
@@ -74,7 +74,7 @@ class App extends Component {
     return (
       <div className="App">
         <AddProject addProject={this.handleAddProject.bind(this)}/>
-        <Projects projects={this.state.projects}/>
+        <Projects projects={this.state.projects} onDelete={this.handleDeleteProject.bind(this)}/>
       </div>
     );
   }
